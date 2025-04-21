@@ -15,7 +15,7 @@ class AesHex(object):
         cipher = AES.new(self.key, AES.MODE_CBC, self.iv)
         content_padding = self.pkcs7padding(content)
         encrypt_bytes = cipher.encrypt(content_padding.encode('utf-8'))
-        return b2a_hex(encrypt_bytes)
+        return b2a_hex(encrypt_bytes).decode('utf-8')
 
     def decrypt(self, content):
         cipher = AES.new(self.key, AES.MODE_CBC, self.iv)
