@@ -15,7 +15,7 @@ class AesBase64(object):
         cipher = AES.new(self.key, AES.MODE_CBC, self.iv)
         content_padding = self.pkcs7padding(content)
         encrypt_bytes = cipher.encrypt(content_padding.encode('utf-8'))
-        return base64.b64encode(encrypt_bytes).decode('utf-8')
+        return base64.b64encode(encrypt_bytes)
 
     def decrypt(self, content):
         cipher = AES.new(self.key, AES.MODE_CBC, self.iv)
